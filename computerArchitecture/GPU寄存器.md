@@ -7,7 +7,7 @@
 
 寄存器变量是每个线程私有的，一旦thread执行结束，寄存器变量就会失效。寄存器是稀有资源。在Fermi上，每个thread限制最多拥有63个register，Kepler则是255个。让自己的kernel使用较少的register就能够允许更多的block驻留在SM中，也就增加了Occupancy，提升了性能。
 
-使用nvcc的`-Xptxas -v,-abi=no`（这里Xptxas表示这个是要传给ptx的参数，不是nvcc的，v是verbose，abi忘了，好像是application by interface）选项可以查看每个thread使用的寄存器数量，shared memory和constant memory的大小。如果kernel使用的register超过硬件限制，这部分会使用local memory来代替register，即所谓的register spilling，我们应该尽量避免这种情况。编译器有相应策略来最小化register的使用并且避免register spilling。我们也可以在代码中显式的加上额外的信息来帮助编译器做优化：
+使用nvcc的`-Xptxas -v,-abi=no`（这里Xptxas表示这个是要传给ptx的参数，不是nvcc的，v是verbose，~~abi忘了，好像是application by interface~~ Fermi 通过程序二进制接口( ABI : Application Binary Interface )机制支持设备函数参数列表堆栈，从而首次在GPU上实现了设备函数的递归调用）选项可以查看每个thread使用的寄存器数量，shared memory和constant memory的大小。如果kernel使用的register超过硬件限制，这部分会使用local memory来代替register，即所谓的register spilling，我们应该尽量避免这种情况。编译器有相应策略来最小化register的使用并且避免register spilling。我们也可以在代码中显式的加上额外的信息来帮助编译器做优化：
 # launch bounds
 [官方手册中关于launch bounds的部分 B.20部分 CUDA 7.5](http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#launch-bounds)
 
@@ -36,3 +36,4 @@ maxThreadsPerBlock指明每个block可以包含的最大thread数目。minBlocks
 [CUDA内存简介](http://blog.csdn.net/mysniper11/article/details/8270149)
 [CUDA ---- Memory Model](http://www.cnblogs.com/1024incn/p/4564726.html)
 [cuda SM register limit](http://stackoverflow.com/questions/3874839/cuda-sm-register-limit)
+[CUDA3.0新特性简览一](https://cudazone.nvidia.cn/forum/forum.php?mod=viewthread&tid=569)
