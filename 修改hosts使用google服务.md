@@ -28,7 +28,7 @@ http://jingyan.baidu.com/article/b24f6c8223feb486bee5da48.html
 # [Hosts单击下载][0]
 请注意，地址修改了，原来的文件不再维护
 
-[adblockingdetector id="56c46fdd3e5fe"]
+[adsense]
 # 4.PS:
 >* 如果linux出现了不能解析主机XXX的问题，比如不能解析Find-Ubuntu，那么在hosts中手动加上
 ```127.0.0.1 Find-Ubuntu```

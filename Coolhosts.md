@@ -4,8 +4,6 @@
  
 # 1.下载地址 
 ## [点击立即下载][17]
-CoolHosts的更新会在微信公众号发消息:
-**FindBlog**
 # 2.使用方法 
 
 + 一键更新
@@ -21,7 +19,7 @@ CoolHosts的更新会在微信公众号发消息:
 + 编辑Hosts（TODO）
 
 
-[adblockingdetector id="56c46fdd3e5fe"]
+[adsense]
 
 # 3.反馈方式
 发送建议或者出现的问题：
@@ -42,7 +40,7 @@ CoolHosts的更新会在微信公众号发消息:
 # 5.PC下修改hosts[参考这篇博客][2]
 # 6.我用了还是上不去google啊
 
-+ 访问https://www.google.com.hk 而不是 http://www.google.com
++ 访问 https://www.google.com.hk 而不是 http://www.google.com
 + 重启再试
 + 开启飞行模式然后关闭试试
 + 放弃使用hosts上谷歌

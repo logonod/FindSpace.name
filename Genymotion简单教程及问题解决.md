@@ -1,19 +1,20 @@
 [TOC]
 
 #介绍
-Genymotion是一款安卓虚拟机，极速”的虚拟机。
->速度的酸爽简直不能忍
+Genymotion是一款极速的安卓虚拟机。
 
 + http://www.genymotion.com 官方网站
-+ http://www.genymotion.net/    国人自己的国内网
 
-建议注册在官网注册。从国内网下载。
+必须先注册，才能下载，且genymotion里需要登录帐号。
+
 #安装
 下载安装很简单，都有说明，这里不再赘述。
 >注意安装完成后，在设置ADB那里设置自己的adb路径
 
 #google play等功能修复
 genymotion2.0升级后就没有google app商店了，应用安装一般也会出错。提示INSTALL_FAILED_CPU_ABI_INCOMPATIBLE” errors 这个貌似只要把apk的中文去掉就可以了。但是一些应用装上还是不行。
+## UPDATE 星期一, 04. 七月 2016 11:14下午 
+修复gapps的方法已经更新，查看[Genymotion刷入谷歌应用市场以及获取root权限](http://www.findspace.name/easycoding/1707)
 ##解决方法的原链接
 [来自stackoverflow][1]
 ##翻译一下
@@ -63,4 +64,4 @@ eclipse开发时需要安装插件才能和genymotion连接起来。
 [6]: http://pan.baidu.com/s/1hqpBPy8 "4.2 gapps"
 [7]: http://pan.baidu.com/s/1pJsjZCZ  "安卓分享文件夹"
 [8]: http://www.findspace.name/res/687 "Eclipse插件"
-[9]: http://forum.xda-developers.com/showthread.php?t=2397942 "xda论坛
+[9]: http://forum.xda-developers.com/showthread.php?t=2397942" xda论坛
