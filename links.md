@@ -3,16 +3,13 @@
 
 |名称|链接|
 |-|-|
-|90Safe|http://90sex.org	|
 |anotherhome|http://anotherhome.net	|
 |DCY的博客|http://byr.pub	|
 |hrwhisper|http://hrwhisper.me	|
 |Hunter的时光机器|http://ihunter.me	|
 |hyriamb|http://lynx.im	|
-|Inurl|http://inurl.org	|
 |L-Ang|http://l-ang.ren	|
 |Netsh|http://blog.netsh.org	|
-|ricter|http://ricter.me	|
 |Sukai's Blog|http://sukai.me	|
 |Volios‘ Blog|http://niconiconi.org	|
 |Zerong's Blog|http://zengrong.net	|
@@ -24,7 +21,6 @@
 |爱编程的时小光|http://abcdsxg.cn	|
 |萝莉社|http://myhloli.com	|
 |记忆反射弧|http://imis.me	|
-|陆雷博客|http://llwjy.com	|
 |静觅|http://cuiqingcai.com|
 
 #关于友链
