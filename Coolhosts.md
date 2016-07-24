@@ -81,7 +81,7 @@
 
 # 10.代码开源
 该用具最一开始是参考的autohosts的代码，后来我重写了一遍，代码遵守**GPL**协议，对源代码的任何修改同样需要开源！
-##[github地址][0]
+##[github地址][0]<a class="github-button" href="https://github.com/FindHao/CoolHosts" data-style="mega" data-count-href="/FindHao/CoolHosts/stargazers" data-count-api="/repos/FindHao/CoolHosts#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star FindHao/CoolHosts on GitHub">Star</a>
 
 服务器端的代码目前不考虑开源。代码托管在了SAE上，SAE注册链接：
 >「新浪云福利」1000云豆免费领！低成本、免运维、灵活、安全稳定，轻松应对业务爆发式增长，一起来用吧！
