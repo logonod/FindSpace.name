@@ -43,7 +43,9 @@ http://jingyan.baidu.com/article/b24f6c8223feb486bee5da48.html
 # 7.其他方法2
 动手能力强的人可以自己买vps搭一个Shadowsocks来用，国外低价的vps很多.
 教程：
+##[板瓦工bandwagon主机优惠购买](http://www.findspace.name/res/1417)
 ##[SHADOWSOCKS科学上网][5]
+
 
 #捐助
 请到**[捐助列表][15]**查看详细信息
