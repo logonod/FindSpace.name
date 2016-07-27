@@ -33,12 +33,13 @@ I cache和D cache锁具有的相同步骤特点：
 + Write to CP15 register 9, setting DL=0 and Dindex=1.
 
 1. 写CP15 寄存器9，置DL=1 && Dindex=0
-2. 初始化指针，指向lock的cache的前16个word头部(为什么是16个word？？)
+2. 初始化指针，指向lock的cache的前16个word头部~~(为什么是16个word？？)~~
 3. 在头部执行LDR命令，这将强制性开始linefill？？？
 4. 指针+16来选择cache bank1（每次+16=+4Byte=+32位=+一行）
 5. 当前位置执行LDR命令
 6. 重复1-5命令来填充bank 3,4的数据
 7. 写CP15 寄存器9，置DL=0 && Dindex=1
+
 
 如果这里有更多的数据需要被锁，则在步骤7中，DL仍=1,Dindex则+1,并重复以上步骤。直到所有需要被锁的数据都被读入了缓存，DL才置0
 
@@ -145,6 +146,9 @@ error
 	LDMFD	 R13!, {R1-R3}					; restore corrupted registers and return
 	MOV	PC, LR
 ```
+## update July 27, 2016 11:11 AM
+为什么是16个word：因为一个cache 在这里默认一个cache line是64byte，每次需要加载一个line的数据到cache line上。一个word默认4个字节，所以是16个word。
+
 
 # Reference
 
