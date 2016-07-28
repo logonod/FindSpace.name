@@ -42,3 +42,7 @@ server = HTTPServerV6(('::', 8000), Handler)
 server.serve_forever()
 ```
 python3运行这个文件，仍然通过访问`http://[::]:8000`来测试是否开启成功。
+
+# 3. 远程访问
+比如在vps上开启了httpserver之后，可以通过访问
+`http://[your_ip_v6_address]:8000`访问,下载地址自然也是ipv6的地址。
