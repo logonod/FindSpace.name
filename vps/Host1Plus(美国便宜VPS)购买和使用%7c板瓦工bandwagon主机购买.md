@@ -40,7 +40,7 @@ Strictly self-managed, no support
 ![](http://www.findspace.name/wp-content/uploads/2016/07/bandwagon_control_panel.png)
 如图注释所示，其中一键搭起ss，需要vps设置的系统是centOS6才行。只需要在`install new os`里选择cent os 6即可。
 ## 安全问题
-root密码建议不要动，就用随机生成的这个即可。同时，先在本地通过命令行ssh登录vps，进行一些安全防护。关于安全问题，稍后文章详细说明。此处会更新链接。
+root密码建议不要动，就用随机生成的这个即可。同时，先在本地通过命令行ssh登录vps，进行一些安全防护。[服务器、VPS等安全防护教程](http://www.findspace.name/easycoding/1714)
 
 # 登录
 windows下载[Putty(点击即可下载)][8]
