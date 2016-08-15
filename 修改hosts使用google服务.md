@@ -19,11 +19,11 @@ win下用户：
 2 参考这个百度经验修改hosts文件的权限
 [windows修改hosts文件的权限][8]
 
-## 2.2 CoolHosts PC版发布！
+## 2.2 CoolHosts PC版发布！!
 [下载地址](https://pan.baidu.com/s/1eS2W7qq)
 仍然秉承着CoolHosts的一键风格，双击即可更新hosts。
 需要先根据[windows修改hosts文件的权限][8]修改hosts文件的可编辑权限。
-稍后会发布百度经验配合windows自带的计划任务功能，进行自动更新hosts。
+[百度经验配合windows自带的计划任务功能，进行自动更新hosts。](http://jingyan.baidu.com/article/ca00d56c41d689e99eebcfdd.html)
 同样开源（[源码地址](https://github.com/FindHao/CoolHostsPC)），可自己编译。
 
 # 3.新增问题
