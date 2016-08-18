@@ -5,13 +5,13 @@
 [App Runtime for Chrome (ARC)](https://developer.chrome.com/apps/getstarted_arc)项目是谷歌推出的，开发者可以通过一个 Chrome 浏览器在任意操作系统运行 Android 应用，当然现在还很不完善，大部分app即使经过官方发布的[ARC Welder](https://chrome.google.com/webstore/detail/arc-welder/emfinbmielocnlhgmfkkmkngdoccbadn/related)进行apk到chrome application的转换，也不能正常运行。
 民间的[ARChon项目主页](https://archon-runtime.github.io/)则移植了ARC到Linux和win上。国内的deepin团队也对其进行了自己的适配，以便适合自己的deepin操作系统，而且在此基础上，deepin又在维护很多国内的app。
 
-# 一、使用deepin团队维护的作品
+# 一、使用deepin团队维护的作品[推荐]
 ## 运行打包好的deb
 [包下载地址百度云分享](http://pan.baidu.com/s/1slqZi3r)
 从环境包里下载`archon-integration_0.0~20150528_amd64.deb deepin-archon_1.0.1_amd64.deb`并安装，依赖noidejs，debian直接`apt-get -f install`解决依赖即可。
 [deepin维护的app](http://packages.deepin.com/deepin/pool/non-free/a/)
 我目前只下载测试了贴吧，微博，正常使用，但是cajviewer(知网的阅读器，用来阅读知网自己格式的论文)崩溃，无法使用。
-## 直接运行apk
+## 直接运行apk [可以尝试自己下载apk]
 下载安卓apk程序，尽量下载pad版本，解压apk：
 ```bash
 # xxx.apk为被解压的apk文件名
@@ -21,7 +21,7 @@
 ```bash
 /lastore/framework/myarchon/archonrun --silent-launch --load-and-launch-app=被解压apk程序的完整路径
 ```
-# 二、使用谷歌官方的插件[推荐]
+# 二、使用谷歌官方的插件
 你也可以自己使用谷歌的插件进行尝试运行android app。
 ##　安装谷歌ARC Welder应用
 直接从谷歌应用商店下载[ARC Welder](https://chrome.google.com/webstore/detail/arc-welder/emfinbmielocnlhgmfkkmkngdoccbadn/related)即可（上不去谷歌请查看博客主页置顶文章）

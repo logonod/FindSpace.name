@@ -1,6 +1,8 @@
 # Introduction
 本文主要介绍了如何在Linux上完美运行deepin团队维护的wine下的一些软件。比如QQ等。这个方法运行的QQ基本没有bug，而且比广泛流行的qq国际版（实际上也是deepin团队的作品）版本更新，且功能更多，比longene社区的QQ（bug实在太多了）要稳定很多。
 本文主要内容转载自[其它linux发行版完美运行deepin上的wine软件包(ubuntu QQ也完美)](http://www.cnblogs.com/xuelongqy/p/5437015.html)，已获授权，并进行了简单的补充。
+另有一篇介绍通过chrome的arc项目运行android app的文章：
+[Linux、chrome运行安卓app](http://www.findspace.name/easycoding/1753)
 # 1. Linux运行QQ
 我们知道在linux上面，deepin做了很多wine的应用程序，但是在其他的linux发行版上却没有这种待遇，下面介绍一下，如何在继续debian的linux发行版上运行deepin的wine应用程序。
 测试通过的平台：
@@ -9,14 +11,15 @@ Mint 17.3（crossover14），Ubuntu 16.04（crossover 15），Debian8（crossove
 deepin的wine应用是基于crossover运行的，但是我试了移植到playOnLinux上基本没多少问题，但是考虑到安装比较麻烦还是使用了crossover。
 ( Linux)将CrossOver的wine程序移植到PlayOnLinux: http://www.cnblogs.com/xuelongqy/p/5438405.html
 如果支持crossover的朋友请购买正版。
+[Crossover 正版购买。年付128￥足够便宜了吧](https://www.codeweavers.com/store)
 下文皆以Debian8 Gnome3 x64为例
 ## 1.1 安装crossover
 [crossover百度网盘下载](http://pan.baidu.com/s/1gflTQd9)
-注：资源文件夹里面有多个版本的crossover，后缀加了free你们懂的，但是存在部分功能性问题，不影响deepinwine的软件包使用。没有free的没有功能性问题，但是可能出现deepinwine软件兼容性问题，试用15天的，如果支持crossover的朋友请购买正版。建议大家来回覆盖安装这两个版本使用，基本可以互补。如果有兴趣的朋友可以和我一起讨论研究解决问题。
+注：资源文件夹里面有多个版本的crossover，后缀加了free是临时破解版，请支持正版，但是存在部分功能性问题，不影响deepinwine的软件包使用。没有free的没有功能性问题，但是可能出现deepinwine软件兼容性问题，试用15天的，如果支持crossover的朋友请购买正版。建议大家来回覆盖安装这两个版本使用，基本可以互补。如果有兴趣的朋友可以和我一起讨论研究解决问题。
 对于什么是来回覆盖安装，举个例子：free版是不能创建容器的，那么我们先安装不是free的版本也就是试用版，把容器创建好了以后，在覆盖安装free版就可以使用了。所以两个版本功能是互补的，虽然麻烦，但还是不影响正常使用的。
 ### 1.1.1 添加32位库的支持
 如果是64位系统，先添加对32位库的支持：
-```
+```bash
 sudo dpkg --add-architecture i386
 sudo apt-get update
 # 可能需要添加下列32位库
@@ -43,8 +46,28 @@ sudo apt-get install lib32z1 lib32ncurses5
 [其他的deepin wine程序下载，实际上这就是deepin的源](http://packages.deepin.com/deepin/pool/non-free/d/)
 
 都是deb包，可以直接下载安装。
-
-# 2. 简单移植deepin的wine软件包道其他Linux发行版
+## 1.3 优化
+安装完成后即可成功运行qq，且基本没有bug。这里再加上两个我常用的脚本。
+### 1.3.1 杀掉qq
+通常叉掉qq后，可能再次打开会无法登录，提示已经登录了qq，在debian8 gnome3下，qq无法最小化到托盘。此时必须kill掉qq相关的进程。
+在`/usr/bin/`下，新建文件（需要root权限），命名为`kqq`，内容如下：
+```bash
+ps aux|grep -v grep|grep wine|cut -c 9-15|xargs kill
+ps aux|grep -v grep|grep QQ|cut -c 9-15|xargs kill
+ps aux|grep -v grep|grep qq|cut -c 9-15|xargs kill
+```
+并通过`chmod a+x kqq`赋予其可执行权限，则可在终端中输入kqq来杀掉qq进程。
+### 1.3.2 将qq相关的进程分配到其他cpu核上运行
+绝大部分进程都是默认在cpu0上运行，很难发挥现在cpu多核的优势，但是linux 有个`taskset`命令可以实现进程的cpu亲和度，可以简单的理解为将进程放到某个cpu上运行。
+在`/usr/bin/`下，新建文件（需要root权限），命名为`tqq`，内容如下：
+```
+ps aux|grep -v grep|grep wine|cut -c 9-15|xargs -n 1 taskset -cp 1
+ps aux|grep -v grep|grep QQ|cut -c 9-15|xargs -n 1 taskset -cp 1
+ps aux|grep -v grep|grep qq|cut -c 9-15|xargs -n 1 taskset -cp 1
+```
+命令简述：`-c`是指定一个cpu列表，格式可以为`1,2,4-7`，`-p`则是指定进程的pid
+-c是指
+# 2. 简单移植deepin的wine软件包到其他Linux发行版
 对于无法解决的依赖，可以直接对软件包进行修改，去掉这些依赖进行安装，但由于依赖问题，所以部分软件并不能完美运行。
 ## 2.1 安装dpkg
 默认已经安装
@@ -55,7 +78,7 @@ sudo apt-get install dpkg
 ## 2.2 修改deepin的wine软件包
 下载deepin的wine软件包，例如wine.deb，
 ### 2.2.1 解压wine软件包
-```
+```bash
 # 先创建软件包目录
 mkdir -p extract/DEBIAN
 # 用dpkg解压
@@ -65,11 +88,10 @@ dpkg-deb -e wine.deb extract/DEBIAN
 ### 2.2.2 去掉依赖
 用文本编辑器打开`extract/DEBIAN/control`，找到`Depends`行，去掉安装时，提示的不能通过的依赖，一般只留下crossover即可。
 ### 2.2.3 重新打包
-```
+```bash
 # 建立软件包生成目录
 mkdir build
 # 重新打包
 dpkg-deb -b extract/ build/
 ```
 在build目录下会看到新生成的wine软件包，安装即可。然后在crossover中会看到这个容器，运行里面的软件即可
-
